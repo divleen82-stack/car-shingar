@@ -1,0 +1,403 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #050505;
+  color: #fff;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 32%), #050505;
+}
+
+.shell {
+  max-width: 1600px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #111;
+  border-radius: 28px;
+  padding: 20px 32px;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 42px;
+  line-height: 1;
+  letter-spacing: -1px;
+  font-weight: 900;
+}
+
+.topbar p,
+.label,
+.estimateHead span,
+.previewTag,
+.stats span,
+.totalBox span,
+.optionCard span {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #777;
+}
+
+.topbar p {
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+
+.estimateHead {
+  text-align: right;
+}
+
+.estimateHead strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 38px;
+}
+
+.layout {
+  flex: 1;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 360px 1fr 420px;
+}
+
+.panel,
+.previewPanel {
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #101010;
+  border-radius: 32px;
+}
+
+.panel {
+  padding: 20px;
+}
+
+.label {
+  margin: 0 0 16px;
+  font-size: 13px;
+}
+
+.carList,
+.optionList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.carCard {
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #000;
+  color: #fff;
+  text-align: left;
+  padding: 0;
+}
+
+.carCard.active {
+  border-color: #fff;
+  background: #fff;
+  color: #000;
+}
+
+.carThumb {
+  height: 112px;
+  background-size: cover;
+  background-position: center;
+}
+
+.carInfo {
+  padding: 20px;
+}
+
+.carInfo h2 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.carInfo p {
+  margin: 6px 0 0;
+  color: #777;
+}
+
+.previewPanel {
+  position: relative;
+  overflow: hidden;
+  background: #0c0c0c;
+}
+
+.previewTag {
+  position: absolute;
+  z-index: 2;
+  top: 24px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(12px);
+  font-size: 13px;
+}
+
+.previewTag.left { left: 24px; }
+.previewTag.right { right: 24px; color: #fff; letter-spacing: normal; text-transform: none; font-weight: 800; }
+
+.previewContent {
+  min-height: 680px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+}
+
+.carStage {
+  position: relative;
+  max-width: 980px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 34px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: linear-gradient(#262626, #000);
+  box-shadow: 0 30px 100px rgba(0,0,0,0.75);
+}
+
+.mainCar {
+  display: block;
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.2), transparent);
+}
+
+.lightEffect {
+  position: absolute;
+  left: 18%;
+  top: 43%;
+  height: 14px;
+  width: 160px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 0 35px 10px rgba(255,255,255,0.55);
+}
+
+.wheel {
+  position: absolute;
+  bottom: 18%;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  border: 14px solid rgba(255,255,255,0.9);
+  background: #000;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.9);
+}
+
+.leftWheel { left: 22%; }
+.rightWheel { right: 20%; }
+
+.bumperEffect {
+  position: absolute;
+  bottom: 20%;
+  left: 18%;
+  height: 46px;
+  width: 260px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(5px);
+}
+
+.carTitle {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  bottom: 28px;
+}
+
+.carTitle h2 {
+  margin: 0;
+  font-size: 52px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.carTitle p {
+  max-width: 760px;
+  margin: 14px 0 0;
+  font-size: 19px;
+  line-height: 1.45;
+  color: #d4d4d4;
+}
+
+.stats {
+  max-width: 980px;
+  width: 100%;
+  margin: 28px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.stats div {
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  padding: 18px;
+}
+
+.stats span,
+.totalBox span,
+.optionCard span {
+  display: block;
+  font-size: 12px;
+}
+
+.stats strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 22px;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.categoryGrid button,
+.actions button {
+  border: 0;
+  border-radius: 18px;
+  padding: 17px 14px;
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.categoryGrid button {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+}
+
+.categoryGrid button.selected,
+.optionCard.active {
+  background: #fff;
+  color: #000;
+}
+
+.optionList {
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.optionCard {
+  width: 100%;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  text-align: left;
+}
+
+.optionCard h3 {
+  margin: 8px 0 0;
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.optionCard p {
+  margin: 8px 0 0;
+  color: #aaa;
+}
+
+.optionCard.active p,
+.optionCard.active span {
+  color: #666;
+}
+
+.optionCard strong {
+  white-space: nowrap;
+  font-size: 20px;
+}
+
+.totalBox {
+  margin-top: 20px;
+  border-radius: 24px;
+  background: #fff;
+  color: #000;
+  padding: 24px;
+}
+
+.totalBox strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 46px;
+}
+
+.totalBox p {
+  margin: 12px 0 0;
+  color: #666;
+  font-size: 13px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.resetBtn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+.quoteBtn {
+  background: #4ade80;
+  color: #000;
+}
+
+@media (max-width: 1200px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .vehiclePanel .carList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
